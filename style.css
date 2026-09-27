@@ -1,199 +1,613 @@
+/**
+ * ==========================================================================
+ * منصة عزنا بطبعنا - CSS Design & Interactive Animations
+ * المطور: سامي نوح قورير
+ * المدرسة: مدرسة الإمام السخاوي الثانوية
+ * ==========================================================================
+ */
+
+/* --------------------------------------------------------------------------
+   1. المتغيرات والألوان الرئيسية (Saudi Green & Royal Gold Palette)
+   -------------------------------------------------------------------------- */
 :root {
-  --green-deep: #006c35;
-  --green-ink: #08331c;
-  --paper: #f6f1e2;
-  --paper-2: #efe6cf;
-  --sand: #ddc99a;
-  --rust: #8c2f26;
-  --rust-2: #b0473a;
-  --ink: #221f1a;
-  --ink-soft: #55503f;
-  --line: rgba(34, 31, 26, 0.14);
-
-  --font-display: "Aref Ruqaa", "Amiri", serif;
-  --font-body: "Tajawal", "Segoe UI", sans-serif;
-
-  --radius: 4px;
-  --shadow-card: 0 10px 24px -12px rgba(34, 31, 26, 0.35);
+    --primary-green: #006C35;
+    --dark-green: #004D25;
+    --accent-gold: #D4AF37;
+    --light-gold: #F3E5AB;
+    --bg-dark: #0A1912;
+    --bg-card: rgba(255, 255, 255, 0.05);
+    --bg-light: #F8F9FA;
+    --text-dark: #1A1A1A;
+    --text-light: #F5F5F5;
+    --text-muted: #8899A6;
+    --glass-border: rgba(212, 175, 55, 0.3);
+    --shadow-glow: 0 10px 30px rgba(212, 175, 55, 0.25);
+    --transition-smooth: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+/* --------------------------------------------------------------------------
+   2. الإعدادات العامة وإعادة الضبط (Reset & Global Styles)
+   -------------------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Tajawal', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    overflow-x: hidden;
+}
 
 body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--font-body);
-  line-height: 1.7;
-  direction: rtl;
+    line-height: 1.8;
+    background: radial-gradient(circle at top right, #00381B 0%, #06140D 100%);
+    min-height: 100vh;
 }
 
-img, video { max-width: 100%; display: block; }
-a { color: inherit; }
-
-h1, h2, h3 {
-  font-family: var(--font-display);
-  margin: 0 0 0.4em;
-  color: var(--green-ink);
-  font-weight: 700;
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.container { width: min(1080px, 92%); margin-inline: auto; }
-
-.zigzag {
-  height: 14px;
-  background-image: linear-gradient(135deg, var(--green-deep) 25%, transparent 25%),
-    linear-gradient(225deg, var(--green-deep) 25%, transparent 25%);
-  background-position: 0 0;
-  background-size: 14px 14px;
-  background-repeat: repeat-x;
+/* --------------------------------------------------------------------------
+   3. شريط الملاحة العلوي التفاعلي (Interactive Navigation Bar)
+   -------------------------------------------------------------------------- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(6, 20, 13, 0.85);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 15px 0;
+    transition: var(--transition-smooth);
 }
 
-.zigzag.rust {
-  background-image: linear-gradient(135deg, var(--rust) 25%, transparent 25%),
-    linear-gradient(225deg, var(--rust) 25%, transparent 25%);
+.nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: var(--paper);
-  border-bottom: 1px solid var(--line);
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--accent-gold);
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-.site-header .bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 0;
+.logo:hover {
+    transform: scale(1.05) rotate(-2deg);
 }
 
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-.brand img { width: 40px; height: 40px; }
-.brand span { font-family: var(--font-display); font-size: 1.3rem; color: var(--green-ink); }
-
-.site-nav { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; font-size: 0.95rem; }
-.site-nav a {
-  text-decoration: none;
-  color: var(--ink-soft);
-  padding-bottom: 4px;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.2s ease, color 0.2s ease;
-}
-.site-nav a:hover { color: var(--green-deep); border-color: var(--green-deep); }
-
-.hero { padding: 72px 0 56px; text-align: center; position: relative; overflow: hidden; }
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: -20% -10% auto -10%;
-  height: 140%;
-  background: radial-gradient(circle at 50% 20%, rgba(0, 108, 53, 0.08), transparent 60%);
-  pointer-events: none;
+.logo-icon {
+    font-size: 2rem;
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.5));
 }
 
-.hero-logo { width: 128px; height: 128px; margin: 0 auto 20px; animation: rise 0.8s ease both; }
-.hero h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); animation: rise 0.8s 0.1s ease both; }
-.hero p.tagline {
-  font-size: 1.15rem;
-  color: var(--ink-soft);
-  max-width: 46ch;
-  margin: 0 auto;
-  animation: rise 0.8s 0.2s ease both;
-}
-.hero .badge {
-  display: inline-block;
-  margin-top: 22px;
-  padding: 8px 22px;
-  border: 1px solid var(--green-deep);
-  border-radius: 999px;
-  color: var(--green-deep);
-  font-size: 0.9rem;
-  animation: rise 0.8s 0.3s ease both;
+.nav-links {
+    display: flex;
+    gap: 15px;
 }
 
-@keyframes rise {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: translateY(0); }
+.nav-item {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1rem;
+    position: relative;
+    transition: var(--transition-smooth);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .hero-logo, .hero h1, .hero p.tagline, .hero .badge { animation: none; }
+/* تأثير التفاعل والتحويم للروابط - هبوط وصعود ساحر */
+.nav-item::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 80%;
+    height: 3px;
+    background-color: var(--accent-gold);
+    border-radius: 2px;
+    transition: transform 0.3s ease;
 }
 
-.intro { padding: 48px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper-2); }
-.intro .container { max-width: 68ch; text-align: center; }
-.intro p { color: var(--ink-soft); }
-
-.games { padding: 64px 0 80px; }
-.games .section-head { text-align: center; margin-bottom: 44px; }
-.games .section-head h2 { font-size: clamp(2rem, 4vw, 2.8rem); }
-.games .section-head p { color: var(--ink-soft); max-width: 60ch; margin: 0 auto; }
-
-.game-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 34px; }
-
-.game-card {
-  background: #fffdf7;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-card);
-  overflow: hidden;
-  position: relative;
-}
-.game-card:nth-child(odd) { transform: rotate(-0.6deg); }
-.game-card:nth-child(even) { transform: rotate(0.6deg); }
-
-.game-card .order-tag {
-  position: absolute;
-  top: 12px;
-  inset-inline-start: 12px;
-  z-index: 2;
-  background: var(--rust);
-  color: #fff;
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  padding: 3px 12px;
-  border-radius: 2px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+.nav-item:hover {
+    color: var(--accent-gold);
+    transform: translateY(-4px);
+    background: rgba(212, 175, 55, 0.1);
 }
 
-.game-media { position: relative; aspect-ratio: 16 / 10; background: var(--ink); }
-.game-media video { width: 100%; height: 100%; object-fit: cover; }
-
-.game-body { padding: 20px 22px 24px; }
-.game-body h3 { font-size: 1.5rem; margin-bottom: 2px; }
-
-.aliases { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
-.aliases span {
-  font-size: 0.75rem;
-  color: var(--ink-soft);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 2px 10px;
+.nav-item:hover::before, .nav-item.active::before {
+    transform: translateX(-50%) scaleX(1);
 }
 
-.game-body .summary { color: var(--green-deep); font-weight: 700; margin-bottom: 10px; }
-.game-body .description { color: var(--ink-soft); font-size: 0.96rem; }
-.game-body .skill {
-  margin-top: 14px;
-  font-size: 0.85rem;
-  color: var(--rust-2);
-  border-top: 1px dashed var(--line);
-  padding-top: 10px;
+.nav-item.active {
+    background: var(--primary-green);
+    color: #FFF;
+    box-shadow: 0 4px 15px rgba(0, 108, 53, 0.5);
 }
 
-.site-footer { background: var(--green-ink); color: #e9e2cd; padding: 34px 0; text-align: center; font-size: 0.9rem; }
-.site-footer .brand-line { font-family: var(--font-display); font-size: 1.2rem; color: #fff; margin-bottom: 6px; }
-
-@media (max-width: 640px) {
-  .site-nav { gap: 14px; font-size: 0.85rem; }
-  .hero { padding: 52px 0 40px; }
-  .game-card:nth-child(odd), .game-card:nth-child(even) { transform: none; }
+/* محدد اللغات */
+.language-picker select {
+    background: rgba(0, 108, 53, 0.3);
+    color: var(--accent-gold);
+    border: 1px solid var(--accent-gold);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    transition: var(--transition-smooth);
 }
 
-a:focus-visible, button:focus-visible, video:focus-visible {
-  outline: 3px solid var(--rust);
-  outline-offset: 2px;
+.language-picker select:hover {
+    background: var(--primary-green);
+    color: #FFF;
+    box-shadow: 0 0 12px var(--accent-gold);
+}
+
+/* --------------------------------------------------------------------------
+   4. القسم الترحيبي الرئيسي (Interactive Hero Section)
+   -------------------------------------------------------------------------- */
+.hero-section {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 140px 20px 80px;
+    background: radial-gradient(circle at center, rgba(0, 108, 53, 0.4) 0%, rgba(6, 20, 13, 0.95) 80%);
+    overflow: hidden;
+}
+
+/* دوائر مضيئة متحركة خلف العنوان الرئيسي */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulseCircle 8s infinite alternate ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes pulseCircle {
+    0% { transform: scale(0.8) translate(-10%, -10%); opacity: 0.5; }
+    100% { transform: scale(1.3) translate(10%, 10%); opacity: 0.9; }
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 24px;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid var(--accent-gold);
+    border-radius: 50px;
+    color: var(--accent-gold);
+    font-weight: 700;
+    margin-bottom: 25px;
+    animation: floatBadge 3s infinite ease-in-out;
+}
+
+@keyframes floatBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.hero-content h1 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    color: #FFFFFF;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.hero-content p {
+    font-size: 1.4rem;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: var(--text-muted);
+}
+
+/* الأزرار التفاعلية */
+.hero-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 900;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-gold), #B38F24);
+    color: #000;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.7);
+    color: #000;
+}
+
+.btn-secondary {
+    background: rgba(0, 108, 53, 0.4);
+    color: #FFF;
+    border: 2px solid var(--primary-green);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-green);
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 12px 25px rgba(0, 108, 53, 0.6);
+}
+
+/* --------------------------------------------------------------------------
+   5. قسم من نحن وعن المشروع (About Cards Grid & Hover Effects)
+   -------------------------------------------------------------------------- */
+.section {
+    padding: 100px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--accent-gold);
+    margin-bottom: 15px;
+}
+
+.title-underline {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+    margin: 0 auto 20px;
+    border-radius: 2px;
+}
+
+.section-description {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+/* شبكة الكروت التفاعلية */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.about-card-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 35px 25px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+/* دوائر خلفية تفاعلية عند الماوس فوق الكرت */
+.about-card-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.about-card-item:hover {
+    transform: translateY(-12px);
+    border-color: var(--accent-gold);
+    box-shadow: var(--shadow-glow);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.about-card-item:hover::before {
+    opacity: 1;
+}
+
+/* الأيقونة داخل دائر متوهجة */
+.about-icon {
+    font-size: 3rem;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    background: rgba(0, 108, 53, 0.4);
+    border: 2px solid var(--accent-gold);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    transition: var(--transition-smooth);
+}
+
+.about-card-item:hover .about-icon {
+    transform: rotate(360deg) scale(1.1);
+    background: var(--primary-green);
+    box-shadow: 0 0 20px var(--accent-gold);
+}
+
+.about-card-item h3 {
+    font-size: 1.6rem;
+    color: #FFF;
+    margin-bottom: 15px;
+}
+
+.about-card-item p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.highlight-card {
+    border: 2px solid var(--accent-gold);
+    background: linear-gradient(145deg, rgba(0, 108, 53, 0.3), rgba(6, 20, 13, 0.8));
+}
+
+.student-info {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed var(--glass-border);
+    color: var(--accent-gold);
+    font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   6. مشغل الفيديو الرئيسي والشامل (Main Video Player Frame)
+   -------------------------------------------------------------------------- */
+.main-video-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+}
+
+.video-frame {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(212, 175, 55, 0.4);
+    transition: var(--transition-smooth);
+}
+
+.video-frame:hover {
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 35px rgba(212, 175, 55, 0.4);
+}
+
+video {
+    width: 100%;
+    display: block;
+    border-radius: 18px;
+    outline: none;
+}
+
+.video-info-panel h3 {
+    font-size: 1.8rem;
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+}
+
+.video-info-panel ul {
+    list-style: none;
+}
+
+.video-info-panel li {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+/* --------------------------------------------------------------------------
+   7. بطاقات الألعاب الشعبية التفصيلية (Detail Game Cards)
+   -------------------------------------------------------------------------- */
+.games-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.game-detail-card {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 35px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 28px;
+    padding: 30px;
+    align-items: center;
+    transition: var(--transition-smooth);
+}
+
+.game-detail-card.alt-layout {
+    grid-template-columns: 1.2fr 1fr;
+    direction: ltr;
+}
+
+.game-detail-card.alt-layout .game-content-box {
+    direction: rtl;
+}
+
+.game-detail-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--accent-gold);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.game-header-tag {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* دوائر أرقام الألعاب المضيئة */
+.game-number {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-green);
+    color: var(--accent-gold);
+    border: 2px solid var(--accent-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.3rem;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.game-header-tag h3 {
+    font-size: 2rem;
+    color: #FFF;
+}
+
+.game-description {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.game-meta {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.meta-tag {
+    background: rgba(0, 108, 53, 0.3);
+    border: 1px solid var(--primary-green);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    color: var(--accent-gold);
+    font-weight: bold;
+}
+
+/* --------------------------------------------------------------------------
+   8. قسم العلم والختام (Saudi Flag Section & Footer)
+   -------------------------------------------------------------------------- */
+.flag-display-card {
+    background: linear-gradient(135deg, rgba(0, 108, 53, 0.4), rgba(6, 20, 13, 0.9));
+    border: 2px solid var(--accent-gold);
+    border-radius: 30px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: var(--shadow-glow);
+}
+
+.flag-banner {
+    background: var(--primary-green);
+    border: 4px solid var(--accent-gold);
+    border-radius: 15px;
+    padding: 40px 20px;
+    margin-bottom: 30px;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.flag-text {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #FFF;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.flag-sword {
+    font-size: 3rem;
+    margin-top: 10px;
+}
+
+.python-code-notice {
+    margin-top: 25px;
+    background: rgba(212, 175, 55, 0.1);
+    border-right: 4px solid var(--accent-gold);
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: var(--light-gold);
+    text-align: right;
+}
+
+.footer {
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid var(--glass-border);
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    background: #040D08;
+}
+
+/* --------------------------------------------------------------------------
+   9. المتجاوب مع الهواتف والشاشات الصغيرة (Responsive Design)
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+    .main-video-wrapper,
+    .game-detail-card,
+    .game-detail-card.alt-layout {
+        grid-template-columns: 1fr;
+        direction: rtl !important;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .nav-links {
+        display: none; /* ينصح بإضافة قائمة هاتف مستقبلاً */
+    }
 }
