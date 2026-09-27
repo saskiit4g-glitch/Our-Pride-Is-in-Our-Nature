@@ -4,61 +4,280 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>منصة عزنا بطبعنا 🇸🇦</title>
+    <!-- خط تجوال من Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary-green: #006C35;
+            --primary-green: #004D25;
+            --dark-green: #041E12;
             --accent-gold: #D4AF37;
-            --bg-dark: #0A1912;
             --text-light: #F5F5F5;
             --text-muted: #A0B0A8;
-            --glass-border: rgba(212, 175, 55, 0.3);
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --border-gold: rgba(212, 175, 55, 0.3);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; font-family: 'Tajawal', sans-serif; background-color: var(--bg-dark); color: var(--text-light); }
-        body { line-height: 1.8; background: radial-gradient(circle at top, #00381B 0%, #06140D 100%); padding-top: 80px; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--dark-green);
+            color: var(--text-light);
+        }
+
+        body {
+            line-height: 1.6;
+            background: radial-gradient(circle at top, #003319 0%, #041E12 100%);
+            padding-top: 70px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
         /* Navbar */
-        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(6, 20, 13, 0.95); border-bottom: 1px solid var(--glass-border); padding: 15px 0; }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 900; color: var(--accent-gold); }
-        .nav-links { display: flex; gap: 12px; }
-        .nav-item { color: #FFF; text-decoration: none; padding: 8px 14px; border-radius: 20px; font-weight: 700; transition: 0.3s; font-size: 0.95rem; }
-        .nav-item:hover { background: var(--primary-green); color: var(--accent-gold); }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(4, 30, 18, 0.95);
+            border-bottom: 1px solid var(--border-gold);
+            padding: 15px 0;
+            backdrop-filter: blur(10px);
+        }
 
-        /* Hero Header */
-        .hero-section { text-align: center; padding: 60px 20px; background: rgba(0,0,0,0.2); border-bottom: 1px solid var(--glass-border); }
-        .badge { display: inline-block; padding: 6px 20px; background: rgba(212, 175, 55, 0.15); border: 1px solid var(--accent-gold); border-radius: 30px; color: var(--accent-gold); font-weight: 700; margin-bottom: 15px; }
-        .hero-content h1 { font-size: 3rem; font-weight: 900; color: #FFF; margin-bottom: 10px; }
-        .hero-content p { font-size: 1.1rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 20px; }
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-        /* Sections & Cards */
-        .section { padding: 50px 0; }
-        .section-title { font-size: 2rem; color: var(--accent-gold); text-align: center; margin-bottom: 10px; }
-        .title-underline { width: 70px; height: 3px; background: var(--accent-gold); margin: 0 auto 30px; }
-        .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .about-card-item { background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); border-radius: 15px; padding: 25px; text-align: center; }
-        .about-icon { font-size: 2.2rem; margin-bottom: 10px; }
-        .about-card-item h3 { color: var(--accent-gold); margin-bottom: 10px; }
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--accent-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-item {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-item:hover {
+            background: var(--primary-green);
+            color: var(--accent-gold);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 16px;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid var(--accent-gold);
+            border-radius: 20px;
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: #FFF;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        /* Sections General */
+        .section {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--accent-gold);
+            text-align: center;
+            margin-bottom: 8px;
+            font-weight: 900;
+        }
+
+        .title-underline {
+            width: 60px;
+            height: 3px;
+            background: var(--accent-gold);
+            margin: 0 auto 25px;
+            border-radius: 2px;
+        }
+
+        /* About Grid */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .about-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .about-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .about-card h3 {
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .about-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
 
         /* Poem Section */
-        .poem-card { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); border-radius: 20px; padding: 35px 20px; text-align: center; max-width: 800px; margin: 0 auto; }
-        .poem-line { font-size: 1.25rem; font-weight: 700; color: #FFF; margin-bottom: 16px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .poem-separator { color: var(--accent-gold); }
+        .poem-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-gold);
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .poem-line {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #FFF;
+            margin-bottom: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .poem-separator {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+        }
 
         /* Videos Section */
-        .main-video-wrapper { background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 20px; padding: 20px; margin-bottom: 30px; text-align: center; }
-        .game-detail-card { background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 20px; padding: 20px; margin-bottom: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; }
-        @media (max-width: 768px) { .game-detail-card { grid-template-columns: 1fr; } }
-        
-        video { width: 100%; max-height: 350px; border-radius: 12px; border: 1px solid var(--glass-border); background: #000; }
-        .game-number { display: inline-block; width: 36px; height: 36px; line-height: 36px; background: var(--primary-green); color: var(--accent-gold); border-radius: 50%; text-align: center; font-weight: 900; margin-bottom: 10px; }
+        .main-video-wrapper {
+            background: var(--card-bg);
+            border: 1px solid var(--border-gold);
+            border-radius: 15px;
+            padding: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-        .footer { text-align: center; padding: 25px; border-top: 1px solid var(--glass-border); color: var(--text-muted); margin-top: 40px; }
+        video {
+            width: 100%;
+            border-radius: 10px;
+            background: #000;
+            display: block;
+        }
+
+        /* Games Section */
+        .game-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-gold);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .game-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .game-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            background: var(--primary-green);
+            color: var(--accent-gold);
+            border-radius: 50%;
+            text-align: center;
+            font-weight: 900;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .game-info h3 {
+            color: var(--accent-gold);
+            margin-bottom: 6px;
+            font-size: 1.2rem;
+        }
+
+        .game-info p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid var(--border-gold);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .footer strong {
+            color: var(--accent-gold);
+        }
     </style>
 </head>
 <body>
@@ -69,7 +288,7 @@
             <div class="logo">عزنا بطبعنا 🇸🇦</div>
             <div class="nav-links">
                 <a href="#about" class="nav-item">عن الفكرة</a>
-                <a href="#poem" class="nav-item">أبيات وطنية</a>
+                <a href="#poem" class="nav-item">الأبيات</a>
                 <a href="#video-section" class="nav-item">المقطع المرئي</a>
                 <a href="#games" class="nav-item">الألعاب الشعبية</a>
             </div>
@@ -82,7 +301,7 @@
             <span class="badge">اليوم الوطني السعودي 2026</span>
             <div class="hero-content">
                 <h1>عزنا بطبعنا</h1>
-                <p>مشروع وطني يوثق الموروث الشعبي والرموز الوطنية الأصيلة للمملكة العربية السعودية</p>
+                <p>مشروع يوثق الأصالة والتراث والموروث الشعبي السعودي</p>
             </div>
         </div>
     </header>
@@ -90,23 +309,23 @@
     <!-- قسم عن الفكرة -->
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">من نحن وما هي فلسفة "عزنا بطبعنا"؟</h2>
+            <h2 class="section-title">فلسفة المشروع</h2>
             <div class="title-underline"></div>
             <div class="about-grid">
-                <div class="about-card-item">
+                <div class="about-card">
                     <div class="about-icon">🌴</div>
-                    <h3>عن اليوم الوطني السعودي</h3>
-                    <p>هو اليوم الذي تم فيه توحيد المملكة العربية السعودية على يد المغفور له الملك عبد العزيز بن عبد الرحمن آل سعود.</p>
+                    <h3>اليوم الوطني</h3>
+                    <p>ذكرى توحيد الوطن الشامخ على يد الملك عبد العزيز رحمه الله.</p>
                 </div>
-                <div class="about-card-item">
+                <div class="about-card">
                     <div class="about-icon">⚔️</div>
                     <h3>معنى "العز"</h3>
-                    <p>العز هو الفخر والمنعة والاستقلال، النبع الممتد من الملوك إلى الشعب ليرسم تاريخ وطن شامخ.</p>
+                    <p>الفخر والكرامة والمنعة الممتدة عبر تاريخ المملكة.</p>
                 </div>
-                <div class="about-card-item">
+                <div class="about-card">
                     <div class="about-icon">🛡️</div>
                     <h3>معنى "الطبع"</h3>
-                    <p>الشيم الأصيلة والصفات النبيلة التي تميز بها أبناء هذا الوطن عبر التاريخ من الكرم والنخوة.</p>
+                    <p>الشيم والصفات الأصيلة من الكرم والنخوة التي يتوارثها المجتمع.</p>
                 </div>
             </div>
         </div>
@@ -119,29 +338,29 @@
             <div class="title-underline"></div>
             <div class="poem-card">
                 <div class="poem-line">
-                    <span class="poem-part">سَلامٌ على دارِ المَکارِمِ والْعُلَا</span>
+                    <span>سَلامٌ على دارِ المَکارِمِ والْعُلَا</span>
                     <span class="poem-separator">❖</span>
-                    <span class="poem-part">وَمَهْدِ الهُدَى والبَذْلِ منذُ تَأصَّلَا</span>
+                    <span>وَمَهْدِ الهُدَى والبَذْلِ منذُ تَأصَّلَا</span>
                 </div>
                 <div class="poem-line">
-                    <span class="poem-part">سُعُودِيَّةُ الأَمْجَادِ يا مَنْبَعَ السَّنَارَ</span>
+                    <span>سُعُودِيَّةُ الأَمْجَادِ يا مَنْبَعَ السَّنَارَ</span>
                     <span class="poem-separator">❖</span>
-                    <span class="poem-part">رَأَيْتُكِ بَدْرًا في سَمَا المَجْدِ مُعْتَلَا</span>
+                    <span>رَأَيْتُكِ بَدْرًا في سَمَا المَجْدِ مُعْتَلَا</span>
                 </div>
                 <div class="poem-line">
-                    <span class="poem-part">دِمَاءُ البُطولَاتِ التي صَاغَتِ الحِمَى</span>
+                    <span>دِمَاءُ البُطولَاتِ التي صَاغَتِ الحِمَى</span>
                     <span class="poem-separator">❖</span>
-                    <span class="poem-part">بِعَزْمِ المُؤَسِّسِ طَابَ فِيهَا وَأَجْزَلَا</span>
+                    <span>بِعَزْمِ المُؤَسِّسِ طَابَ فِيهَا وَأَجْزَلَا</span>
                 </div>
                 <div class="poem-line">
-                    <span class="poem-part">رَوَابِي تَهَادَى في المَحَبَّةِ والعِطْرِ</span>
+                    <span>رَوَابِي تَهَادَى في المَحَبَّةِ والعِطْرِ</span>
                     <span class="poem-separator">❖</span>
-                    <span class="poem-part">وَتَبْقَى رِيَاضُ الخَيْرِ بالْعِزِّ مَنْزِلَا</span>
+                    <span>وَتَبْقَى رِيَاضُ الخَيْرِ بالْعِزِّ مَنْزِلَا</span>
                 </div>
                 <div class="poem-line">
-                    <span class="poem-part">فَيَا رَايَةَ التَّوْحِيدِ دُومِي خَفَّاقَةً</span>
+                    <span>فَيَا رَايَةَ التَّوْحِيدِ دُومِي خَفَّاقَةً</span>
                     <span class="poem-separator">❖</span>
-                    <span class="poem-part">عَلَى قِمَّةِ الدُّنْيَا مَدَى الدَّهْرِ أَعْلَى</span>
+                    <span>عَلَى قِمَّةِ الدُّنْيَا مَدَى الدَّهْرِ أَعْلَى</span>
                 </div>
             </div>
         </div>
@@ -153,79 +372,79 @@
             <h2 class="section-title">المقطع المرئي الرئيسي</h2>
             <div class="title-underline"></div>
             <div class="main-video-wrapper">
-                <video controls preload="metadata">
+                <video controls>
                     <source src="1000086831.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
     </section>
 
-    <!-- قسم موسوعة الألعاب الشعبية (5 ألعاب) -->
+    <!-- قسم الألعاب الشعبية -->
     <section id="games" class="section">
         <div class="container">
-            <h2 class="section-title">موسوعة الألعاب الشعبية التفصيلية</h2>
+            <h2 class="section-title">الألعاب الشعبية</h2>
             <div class="title-underline"></div>
 
-            <div class="game-detail-card">
+            <div class="game-card">
                 <div class="game-info">
                     <span class="game-number">1</span>
-                    <h3>لعبة طاق طاق طاقية</h3>
-                    <p>لعبة حركية شعبية تعتمد على السرعة والبديهة، يجتمع الأطفال في حلقة ويرددون الأهازيج الشعبية المشهورة.</p>
+                    <h3>طاق طاق طاقية</h3>
+                    <p>لعبة حركية تعتمد على السرعة والبديهة بين الأطفال.</p>
                 </div>
                 <div class="game-media">
-                    <video controls preload="metadata">
+                    <video controls>
                         <source src="1000086831.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
 
-            <div class="game-detail-card">
+            <div class="game-card">
                 <div class="game-info">
                     <span class="game-number">2</span>
-                    <h3>لعبة المضلعة</h3>
-                    <p>من الألعاب التراثية القديمة التي تعتمد على التنافس والدقة وتنمي مهارات التركيز لدى الشباب.</p>
+                    <h3>المضلعة</h3>
+                    <p>لعبة تراثية قديمة تعتمد على التنافس والتركيز.</p>
                 </div>
                 <div class="game-media">
-                    <video controls preload="metadata">
+                    <video controls>
                         <source src="1000086831.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
 
-            <div class="game-detail-card">
+            <div class="game-card">
                 <div class="game-info">
                     <span class="game-number">3</span>
-                    <h3>لعبة الكيرم</h3>
-                    <p>لعبة ذهنية وتنافسية شهيرة تجمع العائلة والأصدقاء في مجالس التراث الشعبية.</p>
+                    <h3>الكيرم</h3>
+                    <p>لعبة ذهنية شعبية مشهورة تجمع العائلة والأصدقاء.</p>
                 </div>
                 <div class="game-media">
-                    <video controls preload="metadata">
+                    <video controls>
                         <source src="1000086831.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
 
-            <div class="game-detail-card">
+            <div class="game-card">
                 <div class="game-info">
                     <span class="game-number">4</span>
-                    <h3>لعبة الدحرويج</h3>
-                    <p>لعبة تراثية حركية تعتمد على التوازن والمهارة باستخدام الأدوات البسيطة من البيئة المحلية.</p>
+                    <h3>الدحرويج</h3>
+                    <p>لعبة حركية تعتمد على التوازن باستخدام أدوات البيئة.</p>
                 </div>
                 <div class="game-media">
-                    <video controls preload="metadata">
+                    <video controls>
                         <source src="1000086831.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
 
-            <div class="game-detail-card">
+            <div class="game-card">
                 <div class="game-info">
                     <span class="game-number">5</span>
-                    <h3>لعبة النباطة</h3>
-                    <p>لعبة تراثية قديمة تقيس مهارة التصويب والدقة لدى الناشئة في الماضي.</p>
+                    <h3>النباطة</h3>
+                    <p>لعبة تراثية لتقييم المهارة والدقة في التصويب.</p>
                 </div>
                 <div class="game-media">
-                    <video controls preload="metadata">
+                    <video controls>
                         <source src="1000086831.mp4" type="video/mp4">
                     </video>
                 </div>
