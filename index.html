@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>منصة عزنا بطبعنا 🇸🇦</title>
-    <!-- خط تجوال من Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
@@ -45,7 +44,6 @@
             padding: 0 15px;
         }
 
-        /* Navbar مخصص للهواتف والأجهزة الذكية */
         .navbar {
             position: fixed;
             top: 0;
@@ -92,15 +90,8 @@
             font-size: 0.8rem;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(212, 175, 55, 0.2);
-            transition: 0.3s;
         }
 
-        .nav-item:hover {
-            background: var(--primary-green);
-            color: var(--accent-gold);
-        }
-
-        /* Hero Section */
         .hero-section {
             text-align: center;
             padding: 20px 15px 30px;
@@ -130,7 +121,6 @@
             color: var(--text-muted);
         }
 
-        /* Sections General */
         .section {
             padding: 30px 0;
         }
@@ -151,7 +141,6 @@
             border-radius: 2px;
         }
 
-        /* About Grid */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -182,7 +171,6 @@
             color: var(--text-light);
         }
 
-        /* Poem Section */
         .poem-card {
             background: var(--card-bg);
             border: 1px solid var(--border-gold);
@@ -206,7 +194,6 @@
             font-size: 0.8rem;
         }
 
-        /* Videos Section */
         .main-video-wrapper {
             background: var(--card-bg);
             border: 1px solid var(--border-gold);
@@ -223,7 +210,6 @@
             display: block;
         }
 
-        /* Games Section */
         .game-card {
             background: var(--card-bg);
             border: 1px solid var(--border-gold);
@@ -260,7 +246,6 @@
             color: var(--text-muted);
         }
 
-        /* Footer */
         .footer {
             text-align: center;
             padding: 20px 10px;
@@ -275,36 +260,18 @@
             color: var(--accent-gold);
         }
 
-        /* التكيف تلقائياً للـ Desktop */
         @media (min-width: 768px) {
-            body {
-                padding-top: 80px;
-            }
-            .nav-container {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-            .nav-links {
-                width: auto;
-            }
-            .about-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .poem-line {
-                flex-direction: row;
-                justify-content: center;
-            }
-            .game-card {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                align-items: center;
-            }
+            body { padding-top: 80px; }
+            .nav-container { flex-direction: row; justify-content: space-between; }
+            .nav-links { width: auto; }
+            .about-grid { grid-template-columns: repeat(3, 1fr); }
+            .poem-line { flex-direction: row; justify-content: center; }
+            .game-card { display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- الشريط العلوي المتجاوب -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">عزنا بطبعنا 🇸🇦</div>
@@ -317,7 +284,6 @@
         </div>
     </nav>
 
-    <!-- الواجهة الرئيسية -->
     <header class="hero-section">
         <div class="container">
             <span class="badge">اليوم الوطني السعودي 2026</span>
@@ -328,7 +294,6 @@
         </div>
     </header>
 
-    <!-- قسم عن الفكرة -->
     <section id="about" class="section">
         <div class="container">
             <h2 class="section-title">فلسفة المشروع</h2>
@@ -353,7 +318,6 @@
         </div>
     </section>
 
-    <!-- قسم الأبيات الوطنية -->
     <section id="poem" class="section">
         <div class="container">
             <h2 class="section-title">أبيات في حب الوطن</h2>
@@ -388,20 +352,20 @@
         </div>
     </section>
 
-    <!-- قسم المقطع المرئي الرئيسي -->
+    <!-- المقطع الرئيسي -->
     <section id="video-section" class="section">
         <div class="container">
             <h2 class="section-title">المقطع المرئي الرئيسي</h2>
             <div class="title-underline"></div>
             <div class="main-video-wrapper">
                 <video controls playsinline preload="metadata">
-                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                    <source src="./1000086831.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
     </section>
 
-    <!-- قسم الألعاب الشعبية -->
+    <!-- الألعاب الشعبية -->
     <section id="games" class="section">
         <div class="container">
             <h2 class="section-title">الألعاب الشعبية</h2>
@@ -415,7 +379,7 @@
                 </div>
                 <div class="game-media">
                     <video controls playsinline preload="metadata">
-                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4">
+                        <source src="./1000086831.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -428,7 +392,7 @@
                 </div>
                 <div class="game-media">
                     <video controls playsinline preload="metadata">
-                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" type="video/mp4">
+                        <source src="./1000086831.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -441,7 +405,7 @@
                 </div>
                 <div class="game-media">
                     <video controls playsinline preload="metadata">
-                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyflights.mp4" type="video/mp4">
+                        <source src="./1000086831.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -454,7 +418,7 @@
                 </div>
                 <div class="game-media">
                     <video controls playsinline preload="metadata">
-                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4" type="video/mp4">
+                        <source src="./1000086831.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -467,7 +431,7 @@
                 </div>
                 <div class="game-media">
                     <video controls playsinline preload="metadata">
-                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" type="video/mp4">
+                        <source src="./1000086831.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -475,7 +439,6 @@
         </div>
     </section>
 
-    <!-- الفوتر -->
     <footer class="footer">
         <div class="container">
             <p>منصة عزنا بطبعنا 🇸🇦 | اليوم الوطني السعودي 2026</p>
