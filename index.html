@@ -4,74 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>منصة عزنا بطبعنا 🇸🇦</title>
+    <!-- خط تجوال -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700;900&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary-green: #006C35;
-            --dark-green: #004D25;
-            --accent-gold: #D4AF37;
-            --bg-dark: #0A1912;
-            --text-light: #F5F5F5;
-            --text-muted: #A0B0A8;
-            --glass-border: rgba(212, 175, 55, 0.3);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; font-family: 'Tajawal', sans-serif; background-color: var(--bg-dark); color: var(--text-light); }
-        body { line-height: 1.8; background: radial-gradient(circle at top, #00381B 0%, #06140D 100%); padding-top: 80px; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
-        /* Navbar */
-        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(6, 20, 13, 0.95); border-bottom: 1px solid var(--glass-border); padding: 15px 0; }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 900; color: var(--accent-gold); }
-        .nav-links { display: flex; gap: 12px; }
-        .nav-item { color: #FFF; text-decoration: none; padding: 8px 14px; border-radius: 20px; font-weight: 700; transition: 0.3s; font-size: 0.95rem; }
-        .nav-item:hover, .nav-item.active { background: var(--primary-green); color: var(--accent-gold); }
-
-        /* Hero */
-        .hero-section { text-align: center; padding: 80px 20px; background: rgba(0,0,0,0.2); border-bottom: 1px solid var(--glass-border); }
-        .badge { display: inline-block; padding: 6px 20px; background: rgba(212, 175, 55, 0.15); border: 1px solid var(--accent-gold); border-radius: 30px; color: var(--accent-gold); font-weight: 700; margin-bottom: 20px; }
-        .hero-content h1 { font-size: 3.5rem; font-weight: 900; color: #FFF; margin-bottom: 15px; }
-        .hero-content p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 30px; }
-        .btn { padding: 12px 30px; border-radius: 30px; font-weight: 700; text-decoration: none; display: inline-block; margin: 5px; }
-        .btn-primary { background: var(--accent-gold); color: #000; }
-        .btn-secondary { border: 2px solid var(--primary-green); color: #FFF; }
-
-        /* Sections & Cards */
-        .section { padding: 60px 0; }
-        .section-title { font-size: 2.2rem; color: var(--accent-gold); text-align: center; margin-bottom: 10px; }
-        .title-underline { width: 80px; height: 3px; background: var(--accent-gold); margin: 0 auto 30px; }
-        .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .about-card-item { background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); border-radius: 15px; padding: 25px; text-align: center; }
-        .about-icon { font-size: 2.5rem; margin-bottom: 15px; }
-        .about-card-item h3 { color: var(--accent-gold); margin-bottom: 10px; }
-
-        /* Poem Section Style */
-        .poem-card { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); border-radius: 20px; padding: 35px 20px; text-align: center; max-width: 800px; margin: 0 auto; }
-        .poem-line { font-size: 1.3rem; font-weight: 700; color: #FFF; margin-bottom: 18px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .poem-part { display: inline-block; }
-        .poem-separator { color: var(--accent-gold); }
-
-        /* Videos Section */
-        .main-video-wrapper { background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 20px; padding: 20px; margin-bottom: 30px; text-align: center; }
-        .game-detail-card { background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 20px; padding: 20px; margin-bottom: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; }
-        @media (max-width: 768px) { .game-detail-card { grid-template-columns: 1fr; } }
-        video { width: 100%; max-height: 400px; border-radius: 12px; border: 1px solid var(--glass-border); background: #000; }
-        .game-number { display: inline-block; width: 40px; height: 40px; line-height: 40px; background: var(--primary-green); color: var(--accent-gold); border-radius: 50%; text-align: center; font-weight: 900; margin-bottom: 10px; }
-
-        /* Flag Box */
-        .flag-display-card { background: rgba(0, 108, 53, 0.2); border: 2px solid var(--accent-gold); border-radius: 15px; padding: 30px; text-align: center; max-width: 800px; margin: 0 auto; }
-        .flag-banner { background: var(--primary-green); border: 2px solid var(--accent-gold); padding: 25px; border-radius: 8px; font-size: 2rem; font-weight: 900; margin-bottom: 15px; color: #FFF; letter-spacing: 2px; }
-        .footer { text-align: center; padding: 25px; border-top: 1px solid var(--glass-border); color: var(--text-muted); margin-top: 50px; }
-    </style>
+    <!-- ربط ملف التنسيقات الخارجي CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- الشريط العلوي والتنقل -->
+    <!-- الشريط العلوي -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">عزنا بطبعنا 🇸🇦</div>
@@ -100,7 +42,7 @@
         </div>
     </header>
 
-    <!-- قسم الفلسفة والتعريف -->
+    <!-- قسم عن الفكرة -->
     <section id="about" class="section">
         <div class="container">
             <h2 class="section-title">من نحن وما هي فلسفة "عزنا بطبعنا"؟</h2>
@@ -166,7 +108,7 @@
             <h2 class="section-title">المقطع المرئي الرئيسي</h2>
             <div class="title-underline"></div>
             <div class="main-video-wrapper">
-                <video controls preload="metadata">
+                <video class="custom-video" controls preload="auto">
                     <source src="1000086831.mp4" type="video/mp4">
                     متصفحك لا يدعم تشغيل الفيديو.
                 </video>
@@ -174,13 +116,12 @@
         </div>
     </section>
 
-    <!-- قسم موسوعة الألعاب الشعبية (5 ألعاب كاملة) -->
+    <!-- قسم موسوعة الألعاب الشعبية (5 ألعاب) -->
     <section id="games" class="section">
         <div class="container">
             <h2 class="section-title">موسوعة الألعاب الشعبية التفصيلية</h2>
             <div class="title-underline"></div>
 
-            <!-- لعبة 1 -->
             <div class="game-detail-card">
                 <div class="game-info">
                     <span class="game-number">1</span>
@@ -188,13 +129,12 @@
                     <p>لعبة حركية شعبية تعتمد على السرعة والبديهة، يجتمع الأطفال في حلقة ويرددون الأهازيج الشعبية المشهورة.</p>
                 </div>
                 <div class="game-media">
-                    <video controls preload="metadata">
+                    <video class="custom-video" controls preload="auto">
                         <source src="1000086831.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
 
-            <!-- لعبة 2 -->
             <div class="game-detail-card">
                 <div class="game-info">
                     <span class="game-number">2</span>
@@ -202,13 +142,12 @@
                     <p>من الألعاب التراثية القديمة التي تعتمد على التنافس والدقة وتنمي مهارات التركيز لدى الشباب.</p>
                 </div>
                 <div class="game-media">
-                    <video controls preload="metadata">
+                    <video class="custom-video" controls preload="auto">
                         <source src="1000086831.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
 
-            <!-- لعبة 3 -->
             <div class="game-detail-card">
                 <div class="game-info">
                     <span class="game-number">3</span>
@@ -216,13 +155,12 @@
                     <p>لعبة ذهنية وتنافسية شهيرة تجمع العائلة والأصدقاء في مجالس التراث الشعبية.</p>
                 </div>
                 <div class="game-media">
-                    <video controls preload="metadata">
+                    <video class="custom-video" controls preload="auto">
                         <source src="1000086831.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
 
-            <!-- لعبة 4 -->
             <div class="game-detail-card">
                 <div class="game-info">
                     <span class="game-number">4</span>
@@ -230,13 +168,12 @@
                     <p>لعبة تراثية حركية تعتمد على التوازن والمهارة باستخدام الأدوات البسيطة من البيئة المحلية.</p>
                 </div>
                 <div class="game-media">
-                    <video controls preload="metadata">
+                    <video class="custom-video" controls preload="auto">
                         <source src="1000086831.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
 
-            <!-- لعبة 5 -->
             <div class="game-detail-card">
                 <div class="game-info">
                     <span class="game-number">5</span>
@@ -244,7 +181,7 @@
                     <p>لعبة تراثية قديمة تقيس مهارة التصويب والدقة لدى الناشئة في الماضي.</p>
                 </div>
                 <div class="game-media">
-                    <video controls preload="metadata">
+                    <video class="custom-video" controls preload="auto">
                         <source src="1000086831.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -262,7 +199,7 @@
                 <div class="flag-banner">
                     لا إله إلا الله محمد رسول الله 🇸🇦
                 </div>
-                <p>تم رسم وتصميم سارية التوحيد والراية الشريفة عبر مشروع البايثون المرفق (<code>flag_drawer.py</code>).</p>
+                <p>راية التوحيد والرمز الأسمى للوطن، تمثل العزة والكرامة والأصالة عبر التاريخ.</p>
             </div>
         </div>
     </section>
@@ -275,5 +212,7 @@
         </div>
     </footer>
 
+    <!-- ربط ملف الجافاسكريبت الخارجي JS -->
+    <script src="script.js"></script>
 </body>
 </html>
