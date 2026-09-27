@@ -54,31 +54,31 @@
         .main-video-wrapper { background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 20px; padding: 20px; margin-bottom: 30px; text-align: center; }
         .game-detail-card { background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 20px; padding: 20px; margin-bottom: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; }
         @media (max-width: 768px) { .game-detail-card { grid-template-columns: 1fr; } }
-        video { width: 100%; max-height: 450px; border-radius: 12px; border: 1px solid var(--glass-border); background: #000; }
-        .game-number { display: inline-block; width: 40px; height: 40px; line-height: 40px; background: var(--primary-green); color: var(--accent-gold); border-radius: 50%; text-align: center; font-weight: 900; }
+        video { width: 100%; max-height: 400px; border-radius: 12px; border: 1px solid var(--glass-border); background: #000; }
+        .game-number { display: inline-block; width: 40px; height: 40px; line-height: 40px; background: var(--primary-green); color: var(--accent-gold); border-radius: 50%; text-align: center; font-weight: 900; margin-bottom: 10px; }
 
-        /* Flag & Footer */
-        .flag-display-card { background: rgba(0, 108, 53, 0.2); border: 2px solid var(--accent-gold); border-radius: 20px; padding: 30px; text-align: center; }
-        .flag-banner { background: var(--primary-green); border: 2px solid var(--accent-gold); padding: 30px; border-radius: 10px; font-size: 1.8rem; font-weight: 900; margin-bottom: 20px; color: #FFF; }
-        .footer { text-align: center; padding: 20px; border-top: 1px solid var(--glass-border); color: var(--text-muted); margin-top: 40px; }
+        /* Flag Box */
+        .flag-display-card { background: rgba(0, 108, 53, 0.2); border: 2px solid var(--accent-gold); border-radius: 15px; padding: 30px; text-align: center; max-width: 800px; margin: 0 auto; }
+        .flag-banner { background: var(--primary-green); border: 2px solid var(--accent-gold); padding: 25px; border-radius: 8px; font-size: 2rem; font-weight: 900; margin-bottom: 15px; color: #FFF; letter-spacing: 2px; }
+        .footer { text-align: center; padding: 25px; border-top: 1px solid var(--glass-border); color: var(--text-muted); margin-top: 50px; }
     </style>
 </head>
 <body>
 
-    <!-- القائمة العلوية -->
+    <!-- الشريط العلوي والتنقل -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">عزنا بطبعنا 🇸🇦</div>
             <div class="nav-links">
                 <a href="#about" class="nav-item">عن الفكرة</a>
-                <a href="#video-section" class="nav-item">العرض المائي</a>
+                <a href="#video-section" class="nav-item">المقطع المرئي</a>
                 <a href="#games" class="nav-item">الألعاب الشعبية</a>
                 <a href="#flag-section" class="nav-item">الراية الشريفة</a>
             </div>
         </div>
     </nav>
 
-    <!-- الهيرو / المقدمة -->
+    <!-- الواجهة الرئيسية -->
     <header class="hero-section">
         <div class="container">
             <span class="badge">اليوم الوطني السعودي 2026</span>
@@ -93,7 +93,7 @@
         </div>
     </header>
 
-    <!-- قسم عن الفكرة -->
+    <!-- قسم الفلسفة والتعريف -->
     <section id="about" class="section">
         <div class="container">
             <h2 class="section-title">من نحن وما هي فلسفة "عزنا بطبعنا"؟</h2>
@@ -118,13 +118,13 @@
         </div>
     </section>
 
-    <!-- قسم الفيديو الرئيسي -->
+    <!-- قسم المقطع المرئي الرئيسي -->
     <section id="video-section" class="section">
         <div class="container">
             <h2 class="section-title">المقطع المرئي الرئيسي</h2>
             <div class="title-underline"></div>
             <div class="main-video-wrapper">
-                <video controls autoplay loop muted>
+                <video controls preload="metadata">
                     <source src="1000086831.mp4" type="video/mp4">
                     متصفحك لا يدعم تشغيل الفيديو.
                 </video>
@@ -132,7 +132,7 @@
         </div>
     </section>
 
-    <!-- موسوعة الألعاب الشعبية -->
+    <!-- قسم موسوعة الألعاب الشعبية (5 ألعاب كاملة) -->
     <section id="games" class="section">
         <div class="container">
             <h2 class="section-title">موسوعة الألعاب الشعبية التفصيلية</h2>
@@ -146,7 +146,7 @@
                     <p>لعبة حركية شعبية تعتمد على السرعة والبديهة، يجتمع الأطفال في حلقة ويرددون الأهازيج الشعبية المشهورة.</p>
                 </div>
                 <div class="game-media">
-                    <video controls>
+                    <video controls preload="metadata">
                         <source src="1000086831.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -160,15 +160,58 @@
                     <p>من الألعاب التراثية القديمة التي تعتمد على التنافس والدقة وتنمي مهارات التركيز لدى الشباب.</p>
                 </div>
                 <div class="game-media">
-                    <video controls>
+                    <video controls preload="metadata">
                         <source src="1000086831.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
+
+            <!-- لعبة 3 -->
+            <div class="game-detail-card">
+                <div class="game-info">
+                    <span class="game-number">3</span>
+                    <h3>لعبة الكيرم</h3>
+                    <p>لعبة ذهنية وتنافسية شهيرة تجمع العائلة والأصدقاء في مجالس التراث الشعبية.</p>
+                </div>
+                <div class="game-media">
+                    <video controls preload="metadata">
+                        <source src="1000086831.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <!-- لعبة 4 -->
+            <div class="game-detail-card">
+                <div class="game-info">
+                    <span class="game-number">4</span>
+                    <h3>لعبة الدحرويج</h3>
+                    <p>لعبة تراثية حركية تعتمد على التوازن والمهارة باستخدام الأدوات البسيطة من البيئة المحلية.</p>
+                </div>
+                <div class="game-media">
+                    <video controls preload="metadata">
+                        <source src="1000086831.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <!-- لعبة 5 -->
+            <div class="game-detail-card">
+                <div class="game-info">
+                    <span class="game-number">5</span>
+                    <h3>لعبة النباطة</h3>
+                    <p>لعبة تراثية قديمة تقيس مهارة التصويب والدقة لدى الناشئة في الماضي.</p>
+                </div>
+                <div class="game-media">
+                    <video controls preload="metadata">
+                        <source src="1000086831.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- قسم الراية والبايثون -->
+    <!-- قسم الراية الشريفة -->
     <section id="flag-section" class="section">
         <div class="container">
             <h2 class="section-title">رمز الراية الشريفة - العلم السعودي</h2>
@@ -182,7 +225,7 @@
         </div>
     </section>
 
-    <!-- الفوتر / حقوق المطور -->
+    <!-- الفوتر مع اسم المطور والكلية/المدرسة -->
     <footer class="footer">
         <div class="container">
             <p>منصة عزنا بطبعنا 🇸🇦 | اليوم الوطني السعودي 2026</p>
