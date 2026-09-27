@@ -1,0 +1,173 @@
+# -*- coding: utf-8 -*-
+"""
+==============================================================================
+مشروع اليوم الوطني السعودي - منصة "عزنا بطبعنا"
+الملف: flag_drawer.py
+المطور: سامي نوح قورير
+المدرسة: مدرسة الإمام السخاوي الثانوية
+الوصف: برنامج رسم العلم السعودي وسارية التوحيد التفاعلية بجودة عالية 4K
+==============================================================================
+"""
+
+import turtle
+import math
+
+def setup_screen():
+    """إعداد نافذة العرض بجودة عالية خلفية ليلية ملكية"""
+    screen = turtle.Screen()
+    screen.title("علم المملكة العربية السعودية 🇸🇦 | منصة عزنا بطبعنا - 4K Ultra Render")
+    screen.setup(width=1280, height=720)
+    screen.bgcolor("#040C08")  # خلفية داكنة لإبراز إضاءة العلم والذهبي
+    screen.tracer(0)  # تسريع الرسم لرسم اللوحة كدفعة واحدة بجودة عالية
+    return screen
+
+def draw_rectangle(t, x, y, width, height, color):
+    """رسم مستطيل ملون محدد"""
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+    t.color(color)
+    t.begin_fill()
+    for _ in range(2):
+        t.forward(width)
+        t.left(90)
+        t.forward(height)
+        t.left(90)
+    t.end_fill()
+
+def draw_flag_pole(t):
+    """رسم سارية العلم ثلاثية الأبعاد والقبة الذهبية في الأعلى"""
+    pole_x = -380
+    pole_y_bottom = -280
+    pole_height = 560
+    
+    # 1. قاعدة السارية السفلى
+    draw_rectangle(t, pole_x - 30, pole_y_bottom - 20, 80, 20, "#B38F24")
+    draw_rectangle(t, pole_x - 20, pole_y_bottom, 60, 25, "#D4AF37")
+
+    # 2. جسم السارية الرئيسي المتدرج (تأثير ثلاثي الأبعاد)
+    draw_rectangle(t, pole_x - 10, pole_y_bottom + 25, 20, pole_height, "#C5A059")
+    draw_rectangle(t, pole_x - 4, pole_y_bottom + 25, 8, pole_height, "#FFF5C0")  # إضاءة لفة السارية
+
+    # 3. القبة الذهبية المضيئة أعالي السارية (Finial)
+    t.penup()
+    t.goto(pole_x, pole_y_bottom + 25 + pole_height + 15)
+    t.color("#FFD700")
+    t.begin_fill()
+    t.circle(22)
+    t.end_fill()
+
+def draw_waving_flag_cloth(t):
+    """رسم راية العلم الأخضر مع حواف موجية لإعطاء إيحاء الرفرفة بالهواء"""
+    start_x = -370
+    start_y = 60
+    flag_w = 680
+    flag_h = 420
+    
+    # رسم قماش العلم الرئيسي الأخضر السعودي
+    t.penup()
+    t.goto(start_x, start_y)
+    t.color("#006C35")
+    t.begin_fill()
+    
+    # الضلع العلوي المموج
+    t.setheading(0)
+    for x in range(0, flag_w, 10):
+        y_wave = start_y + math.sin(x * 0.015) * 12
+        t.goto(start_x + x, y_wave)
+        
+    # الضلع الأيمن
+    right_end_x = start_x + flag_w
+    right_end_y = start_y - flag_h
+    t.goto(right_end_x, right_end_y)
+    
+    # الضلع السفلي المموج
+    for x in range(flag_w, 0, -10):
+        y_wave = (start_y - flag_h) + math.sin(x * 0.015) * 12
+        t.goto(start_x + x, y_wave)
+        
+    t.goto(start_x, start_y)
+    t.end_fill()
+
+    # إضافة ظلال وتعرجات الرفرفة (Shading Wave Overlay)
+    t.color("#004D25")
+    t.width(3)
+    for wave_offset in [180, 360, 520]:
+        t.penup()
+        t.goto(start_x + wave_offset, start_y + math.sin(wave_offset * 0.015) * 12)
+        t.pendown()
+        t.setheading(270)
+        t.forward(flag_h - 10)
+
+def draw_shahada_and_sword(t):
+    """كتابة عبارة الشهادتين ورسم السيف العربي بنقاء واضحة"""
+    center_x = -20
+    
+    # 1. كتابة الشهادتين في المنتصف
+    t.penup()
+    t.goto(center_x, 110)
+    t.color("#FFFFFF")
+    t.write("لا إله إلا الله محمد رسول الله", 
+            align="center", 
+            font=("Traditional Arabic", 36, "bold"))
+
+    # 2. رسم السيف العربي العربي الأصيل الصارم
+    sword_y = 70
+    sword_length = 340
+    
+    t.penup()
+    t.goto(center_x - (sword_length / 2), sword_y)
+    t.color("#FFFFFF")
+    t.pendown()
+    t.width(6)
+    
+    # نصل السيف
+    t.setheading(0)
+    t.forward(sword_length)
+    
+    # انحناء رأس السيف
+    t.left(45)
+    t.forward(15)
+    
+    # مقبض السيف ومقابضه الدائرية
+    t.penup()
+    t.goto(center_x - (sword_length / 2), sword_y)
+    t.pendown()
+    t.setheading(90)
+    t.forward(18)
+    t.backward(36)
+    
+    # قبضة السيف التراثية
+    t.penup()
+    t.goto(center_x - (sword_length / 2) - 12, sword_y - 2)
+    t.dot(16, "#FFFFFF")
+
+def draw_watermark_info(t):
+    """إضافة توقيع المشروع والمطور في الأسفل"""
+    t.penup()
+    t.goto(0, -320)
+    t.color("#D4AF37")
+    t.write("منصة عزنا بطبعنا 🇸🇦 | اليوم الوطني السعودي 2026\nتطوير الطالب: سامي نوح كورير - مدرسة الإمام السخاوي الثانوية", 
+            align="center", 
+            font=("Tajawal", 14, "bold"))
+
+def main():
+    screen = setup_screen()
+    
+    drawer = turtle.Turtle()
+    drawer.hideturtle()
+    drawer.speed(0)
+
+    # تنفيذ خطوات الرسم
+    draw_flag_pole(drawer)
+    draw_waving_flag_cloth(drawer)
+    draw_shahada_and_sword(drawer)
+    draw_watermark_info(drawer)
+
+    screen.update()  # تحديث الرسمة لإظهار اللوحة النهائية بدقة 4K
+    
+    print("✅ تم رسم علم المملكة العربية السعودية والسارية التفاعلية بنجاح 4K!")
+    screen.mainloop()
+
+if __name__ == "__main__":
+    main()
