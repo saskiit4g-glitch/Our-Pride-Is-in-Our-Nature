@@ -1,86 +1,315 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>عزنا بطبعنا | اليوم الوطني السعودي</title>
-  <meta
-    name="description"
-    content="موقع اليوم الوطني «عزنا بطبعنا» — تعرّف على الألعاب الشعبية السعودية الأصيلة بالصوت والصورة."
-  />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@400;500;700&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="منصة عزنا بطبعنا - مشروع مدرسة الإمام السخاوي الثانوية لليوم الوطني السعودي وتوثيق الألعاب الشعبية">
+    <meta name="author" content="سامي نوح قورير">
+    <title>منصة عزنا بطبعنا 🇸🇦 | اليوم الوطني السعودي</title>
+    
+    <!-- الخطوط العريضة والمؤثرات -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container bar">
-      <a href="#top" class="brand">
-        <img src="assets/img/logo.png" alt="شعار عزنا بطبعنا" />
-        <span>عزّنا بطبعنا</span>
-      </a>
-      <nav>
-        <ul class="site-nav">
-          <li><a href="#top">الرئيسية</a></li>
-          <li><a href="#games">الألعاب الشعبية</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
 
-  <div class="zigzag" aria-hidden="true"></div>
-
-  <main id="top">
-    <section class="hero">
-      <div class="container">
-        <img class="hero-logo" src="assets/img/logo.png" alt="شعار الموقع: نخلة وسيفان متقاطعان داخل دائرة خضراء" />
-        <h1>عزّنا بطبعنا</h1>
-        <p class="tagline">
-          مبادرة طلابية بمناسبة اليوم الوطني، نحتفي فيها بجزء من هويتنا العريقة:
-          الألعاب الشعبية التي كبرنا على حكاياتها قبل أن نراها بأعيننا.
-        </p>
-        <span class="badge">اليوم الوطني ٩٦</span>
-      </div>
-    </section>
-
-    <section class="intro">
-      <div class="container">
-        <h2>لماذا الألعاب الشعبية؟</h2>
-        <p>
-          قبل الشاشات، كانت الحارة كلها ملعبًا، وكانت العجلة القديمة وقطعة القماش
-          وحفنة الرمل كافية لصنع بطولة كاملة. في هذه الصفحة نوثّق خمسًا من أشهر
-          هذه الألعاب كما ظهرت في أحد مقاطع وزارة الثقافة، بصوتها وصورتها،
-          حتى لا تبقى حكايةً نرويها فقط، بل مشهدًا نراه.
-        </p>
-      </div>
-    </section>
-
-    <section class="games" id="games">
-      <div class="container">
-        <div class="section-head">
-          <h2>من تراثنا: الألعاب الشعبية</h2>
-          <p>خمس لعبات، خمس ذكريات — اضغط تشغيل لتشاهد كل لعبة وتقرأ طريقتها.</p>
+    <!-- شريط الملاحة الرئيسي -->
+    <header class="navbar" id="topNavbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🇸🇦</span>
+                <span class="logo-text" data-i18n="platform_title">عزنا بطبعنا</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#hero" class="nav-item active" data-i18n="nav_home">الرئيسية</a>
+                <a href="#about" class="nav-item" data-i18n="nav_about">من نحن وعن المشروع</a>
+                <a href="#main-video" class="nav-item" data-i18n="nav_main_video">الفلم الوثائقي</a>
+                <a href="#games" class="nav-item" data-i18n="nav_games">مكتبة الألعاب الشعبية</a>
+                <a href="#flag-section" class="nav-item" data-i18n="nav_flag">رمز الراية السعودية</a>
+            </nav>
+            <div class="language-picker">
+                <label for="languageSelector" class="sr-only">اختر اللغة</label>
+                <select id="languageSelector" aria-label="اختر اللغة">
+                    <option value="ar">🇸🇦 العربية</option>
+                    <option value="en">🇬🇧 English</option>
+                    <option value="zh">🇨🇳 中文</option>
+                </select>
+            </div>
         </div>
-        <div class="game-grid" id="game-grid">
-          <!-- تُبنى البطاقات ديناميكيًا بواسطة js/script.js من ملف assets/data/games.json -->
+    </header>
+
+    <!-- الواجهة الترحيبية HERO SECTION -->
+    <section id="hero" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge" data-i18n="hero_badge">المشروع الوطني التراثي 1448 / 2026</span>
+            <h1 data-i18n="hero_heading">عزنا بطبعنا</h1>
+            <p data-i18n="hero_subheading">منصة إلكترونية احتفالية توثق أصل الألعاب الشعبية السعودية والموروث الثقافي الأصيل لمملكتنا الحبيبة.</p>
+            <div class="hero-actions">
+                <a href="#main-video" class="btn btn-primary" data-i18n="btn_watch">شاهد الوثائقي الرئيسي</a>
+                <a href="#games" class="btn btn-secondary" data-i18n="btn_explore">استكشف الألعاب الشعبية</a>
+            </div>
         </div>
-      </div>
     </section>
-  </main>
 
-  <div class="zigzag rust" aria-hidden="true"></div>
+    <!-- ℹ️ قسم من نحن وعن المشروع (الإضافة الجديدة التوضيحية) -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="about_section_title">من نحن وما هي فلسفة "عزنا بطبعنا"؟</h2>
+                <div class="title-underline"></div>
+                <p class="section-description" data-i18n="about_section_subtitle">
+                    تعريف شامل باليوم الوطني السعودي، وبمعنى "العز" و"الطبع"، ورسالة المنصة التراثية.
+                </p>
+            </div>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p class="brand-line">عزّنا بطبعنا</p>
-      <p>مشروع مدرسي بمناسبة اليوم الوطني السعودي — إعداد الطالب</p>
-    </div>
-  </footer>
+            <div class="about-grid">
+                
+                <!-- بطاقة اليوم الوطني -->
+                <div class="about-card-item">
+                    <div class="about-icon">🇸🇦</div>
+                    <h3>عن اليوم الوطني السعودي</h3>
+                    <p>
+                        هو يوم توحيد المملكة العربية السعودية على يد المغفور له بإذن الله الملك عبد العزيز بن عبد الرحمن آل سعود. نمرّ في كل عام بهذه المناسبة العزيزة لنستذكر فيها ملحمة التأسيس والبناء، ونحتفي بالرؤية الوطنية والتقدم الشامل مع الحفاظ على الجذور.
+                    </p>
+                </div>
 
-  <script src="js/script.js"></script>
+                <!-- بطاقة العز -->
+                <div class="about-card-item">
+                    <div class="about-icon">👑</div>
+                    <h3>معنى "العِــز"</h3>
+                    <p>
+                        "العز" هو الشموخ والأنفة والكرامة والتلاحم الوطني. هو شعور الفخر المستمد من التوحيد والقيادة الحكيمة، والاعتزاز بتاريخ عريق يرفع رأس كل سعودي وسعودية بين الأمم في الماضي والحاضر والمستقبل.
+                    </p>
+                </div>
+
+                <!-- بطاقة الطبع -->
+                <div class="about-card-item">
+                    <div class="about-icon">🌴</div>
+                    <h3>معنى "الطَّبِـع"</h3>
+                    <p>
+                        "الطبع" هو السجية الأصيلة والشيم العربية والتراث الموروث أبتاً عن جد. يتجسد هذا الطبع في الكرم والنخوة والمروءة والألعاب التراثية الشعبية التي شكلت طفولة الأجداد والآباء وحافظت على الروابط الاجتماعية.
+                    </p>
+                </div>
+
+                <!-- بطاقة التعريف بالمشروع -->
+                <div class="about-card-item highlight-card">
+                    <div class="about-icon">🎓</div>
+                    <h3>عن المنصة والمشروع المدرسي</h3>
+                    <p>
+                        منصة <strong>"عزنا بطبعنا"</strong> هي مبادرة رقمية احتفالية توثق الموروث الشعبي السعودي والألعاب التراثية من مقاطع وثائقية مرئية متكاملة، تهدف إلى إحياء الذاكرة الوطنية ونقل قيم التراث إلى الجيل الصاعد.
+                    </p>
+                    <div class="student-info">
+                        <p><strong>إعداد وتطوير الطالب:</strong> سامي نوح قورير</p>
+                        <p><strong>المدرسة:</strong> مدرسة الإمام السخاوي الثانوية</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 🎥 قسم الفيديو الوثائقي الرئيسي المستقل -->
+    <section id="main-video" class="section main-video-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="main_video_title">🎬 الفلم الوثائقي الشامل للألعاب الشعبية</h2>
+                <div class="title-underline"></div>
+                <p class="section-description" data-i18n="main_video_desc">
+                    العرض الكامل الموثق للألعاب الشعبية والتراثية في مختلف مناطق المملكة العربية السعودية. يرجى مشاهدة المقطع للتعرف على الروابط الاجتماعية والتاريخية لألعاب الأجداد.
+                </p>
+            </div>
+
+            <div class="main-video-wrapper">
+                <div class="video-frame">
+                    <video id="fullDocumentaryVideo" controls poster="https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?auto=format&fit=crop&w=1200&q=80">
+                        <source src="1000086785.mp4" type="video/mp4">
+                        متصفحك لا يدعم تشغيل مقاطع الفيديو.
+                    </video>
+                </div>
+                <div class="video-info-panel">
+                    <h3>معلومات المقطع الوثائقي</h3>
+                    <ul>
+                        <li><strong>المصدر:</strong> وزارة الثقافة - المملكة العربية السعودية[span_0](start_span)[span_0](end_span)</li>
+                        <li><strong>الموضوع:</strong> الموروث الثقافي والألعاب الشعبية الأصيلة[span_1](start_span)[span_1](end_span)</li>
+                        <li><strong>المدة:</strong> 1:41 دقيقة[span_2](start_span)[span_2](end_span)</li>
+                        <li><strong>النطاق:</strong> كافة مناطق المملكة العربية السعودية[span_3](start_span)[span_3](end_span)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🕹️ قسم الألعاب الشعبية والشروحات والتجزئة -->
+    <section id="games" class="section games-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="games_section_title">📜 موسوعة الألعاب الشعبية التفصيلية</h2>
+                <div class="title-underline"></div>
+                <p class="section-description" data-i18n="games_section_desc">
+                    استعرض كل لعبة شعبية على حدة مع المقطع المخصص لها وشرح مفصل لأسلوب لعبها ومبادئها التراثية:
+                </p>
+            </div>
+
+            <div class="games-container">
+
+                <!-- اللعبة 1: الدنانة -->
+                <article class="game-detail-card" id="game-danna">
+                    <div class="game-video-box">
+                        <video id="video-danna" controls preload="metadata">
+                            <source src="1000086813.mp4" type="video/mp4">[span_4](start_span)[span_4](end_span)
+                            متصفحك لا يدعم تشغيل الفيديو.
+                        </video>
+                    </div>
+                    <div class="game-content-box">
+                        <div class="game-header-tag">
+                            <span class="game-number">01</span>
+                            <h3>لعبة الدنّانة</h3>[span_5](start_span)[span_5](end_span)
+                        </div>
+                        <p class="game-description" data-i18n="game_danna_text">
+                            <strong>وصف اللعبة:</strong> لعبة حركة ومهارة فردية وجماعية شهيرة في التراث السعودي[span_6](start_span)[span_6](end_span). يعتمد فيها الطفل على عجلة معدنية أو دائرية مثبتة بسلك أو عصا مخصصة، ويقوم بالركض الحر وهو يدفها ببراعة للتسابق والتوازن والوصول إلى نقطة النهاية المحددة مسبقاً دون أن تسقط العجلة[span_7](start_span)[span_7](end_span).
+                        </p>
+                        <div class="game-meta">
+                            <span class="meta-tag">⚡ التكيف: لياقة وسرعة</span>
+                            <span class="meta-tag">👥 الأدوات: عجلة وعصا دفع</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- اللعبة 2: المصاقيل -->
+                <article class="game-detail-card alt-layout" id="game-masaqil">
+                    <div class="game-video-box">
+                        <video id="video-masaqil" controls preload="metadata">
+                            <source src="1000086814.mp4" type="video/mp4">[span_8](start_span)[span_8](end_span)
+                            متصفحك لا يدعم تشغيل الفيديو.
+                        </video>
+                    </div>
+                    <div class="game-content-box">
+                        <div class="game-header-tag">
+                            <span class="game-number">02</span>
+                            <h3>لعبة المصاقيل</h3>[span_9](start_span)[span_9](end_span)
+                        </div>
+                        <p class="game-description" data-i18n="game_masaqil_text">
+                            <strong>وصف اللعبة:</strong> لعبة تصويب وتدريب على التركيز الدقيق[span_10](start_span)[span_10](end_span). يُستخدم فيها كرات زجاجية أو حجرية صغيرة مستديرة تسمى (المسقال)[span_11](start_span)[span_11](end_span). يرتكز اللاعبون على الأرض لتصويب كراتهم باتجاه كرات المنافسين أو هدف محدد وسط حلقة مخصصة، ويتفوق فيها من يمتلك الدقة الأعلى والقدرة على التحكم بالقوة[span_12](start_span)[span_12](end_span).
+                        </p>
+                        <div class="game-meta">
+                            <span class="meta-tag">🎯 التكيف: تركيز وتصويب</span>
+                            <span class="meta-tag">👥 الأدوات: كرات مستديرة (مصاقيل)</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- اللعبة 3: الخطة -->
+                <article class="game-detail-card" id="game-khatta">
+                    <div class="game-video-box">
+                        <video id="video-khatta" controls preload="metadata">
+                            <source src="1000086815.mp4" type="video/mp4">[span_13](start_span)[span_13](end_span)
+                            متصفحك لا يدعم تشغيل الفيديو.
+                        </video>
+                    </div>
+                    <div class="game-content-box">
+                        <div class="game-header-tag">
+                            <span class="game-number">03</span>
+                            <h3>لعبة الخطة</h3>[span_14](start_span)[span_14](end_span)
+                        </div>
+                        <p class="game-description" data-i18n="game_khatta_text">
+                            <strong>وصف اللعبة:</strong> لعبة توازن وحركة خفيفة تُمارس برسم مربعات ترابية أو جيرية متسلسلة على الأرض[span_15](start_span)[span_15](end_span). يقوم اللاعب برمي حجر صغير داخل إحدى المربعات، ثم يرمي ويتحرك بالقفز على قدم واحدة لتجاوز المربعات بمهارة وتوازن دون ملامسة الخطوط المحددة[span_16](start_span)[span_16](end_span).
+                        </p>
+                        <div class="game-meta">
+                            <span class="meta-tag">🤸 التكيف: مرونة وتوازن</span>
+                            <span class="meta-tag">👥 الأدوات: رسم أرضي وحجر صغير</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- اللعبة 4: الغميضة -->
+                <article class="game-detail-card alt-layout" id="game-ghamayda">
+                    <div class="game-video-box">
+                        <video id="video-ghamayda" controls preload="metadata">
+                            <source src="1000086816.mp4" type="video/mp4">[span_17](start_span)[span_17](end_span)
+                            متصفحك لا يدعم تشغيل الفيديو.
+                        </video>
+                    </div>
+                    <div class="game-content-box">
+                        <div class="game-header-tag">
+                            <span class="game-number">04</span>
+                            <h3>لعبة الغميضة</h3>[span_18](start_span)[span_18](end_span)
+                        </div>
+                        <p class="game-description" data-i18n="game_ghamayda_text">
+                            <strong>وصف اللعبة:</strong> واحدة من أشهر الألعاب الجماعية الاجتماعية[span_19](start_span)[span_19](end_span). يقوم أحد اللاعبين بوضع يديه على عينيه وعدّ أرقام معينة بينما يهرع بقية المشاركين للاختباء في المكان[span_20](start_span)[span_20](end_span). يبدأ بعدها بالبحث عنهم، واللاعب الذي يُكتشف أولاً أو يُلمس يصبح هو الباحث في الجولة التالية[span_21](start_span)[span_21](end_span).
+                        </p>
+                        <div class="game-meta">
+                            <span class="meta-tag">👀 التكيف: سرعة وبحث</span>
+                            <span class="meta-tag">👥 الأدوات: لا تتطلب أدوات</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- اللعبة 5: النباطة -->
+                <article class="game-detail-card" id="game-nabata">
+                    <div class="game-video-box">
+                        <video id="video-nabata" controls preload="metadata">
+                            <source src="1000086817.mp4" type="video/mp4">[span_22](start_span)[span_22](end_span)
+                            متصفحك لا يدعم تشغيل الفيديو.
+                        </video>
+                    </div>
+                    <div class="game-content-box">
+                        <div class="game-header-tag">
+                            <span class="game-number">05</span>
+                            <h3>لعبة النبّاطة</h3>[span_23](start_span)[span_23](end_span)
+                        </div>
+                        <p class="game-description" data-i18n="game_nabata_text">
+                            <strong>وصف اللعبة:</strong> لعبة تراثية تحاكي مهارات الصيد والتصويب الحقيقي[span_24](start_span)[span_24](end_span). تُصنع القوس التقليدية من غصن خشبي على شكل حرف Y مع مطاط وقاعدة جلدية[span_25](start_span)[span_25](end_span). يتنافس اللاعبون بإصابة أهداف معينة وثابتة من مسافات محددة لاختبار المهارة وتوافق العين مع اليد[span_26](start_span)[span_26](end_span).
+                        </p>
+                        <div class="game-meta">
+                            <span class="meta-tag">🏹 التكيف: تركيز بدني ودقة</span>
+                            <span class="meta-tag">👥 الأدوات: نباطة خشبية وأهداف</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 🇸🇦 قسم رسم وشعار العلم السعودي -->
+    <section id="flag-section" class="section flag-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="flag_section_title">🇸🇦 رمز الراية الشريفة - العلم السعودي</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="flag-display-card">
+                <div class="flag-canvas-simulation">
+                    <div class="flag-banner">
+                        <div class="flag-text">لا إله إلا الله محمد رسول الله</div>
+                        <div class="flag-sword">🗡️</div>
+                    </div>
+                </div>
+                <div class="flag-details">
+                    <h3 data-i18n="flag_card_title">شعار العز والتوحيد</h3>
+                    <p data-i18n="flag_card_desc">
+                        راية المملكة العربية السعودية الخضراء الخالدة، ترمز الشهادتان فيها إلى السلام والإسلام والعقيدة، ورمز السيف العربي الصارم يرمز إلى القوة والعدل والأنفة.
+                    </p>
+                    <div class="python-code-notice">
+                        <strong>💡 ملاحظة المطور:</strong> تم إرفاق كود خاص بلغة Python الرسمية (`flag_drawer.py`) لرسم العلم هندسياً باستخدام مكتبة الرسم البرمجي `Turtle`.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل الرئيسي -->
+    <footer class="footer">
+        <div class="container">
+            <p>جميع الحقوق محفوظة منصة عزنا بطبعنا © 2026 | اليوم الوطني للمملكة العربية السعودية | مدرسة الإمام السخاوي الثانوية</p>
+        </div>
+    </footer>
+
+    <!-- السكربت البرمجي -->
+    <script src="js/main.js"></script>
 </body>
 </html>
