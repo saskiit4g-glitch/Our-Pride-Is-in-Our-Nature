@@ -16,8 +16,8 @@
             --accent-gold: #D4AF37;
             --text-light: #F5F5F5;
             --text-muted: #A0B0A8;
-            --card-bg: rgba(255, 255, 255, 0.04);
-            --border-gold: rgba(212, 175, 55, 0.3);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border-gold: rgba(212, 175, 55, 0.4);
         }
 
         * {
@@ -36,55 +36,62 @@
         body {
             line-height: 1.6;
             background: radial-gradient(circle at top, #003319 0%, #041E12 100%);
-            padding-top: 70px;
+            padding-top: 130px;
         }
 
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
-        /* Navbar */
+        /* Navbar مخصص للهواتف والأجهزة الذكية */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(4, 30, 18, 0.95);
+            background: rgba(4, 30, 18, 0.98);
             border-bottom: 1px solid var(--border-gold);
-            padding: 15px 0;
+            padding: 10px 0;
             backdrop-filter: blur(10px);
         }
 
         .nav-container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 10px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
+            gap: 8px;
         }
 
         .logo {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 900;
             color: var(--accent-gold);
+            text-align: center;
         }
 
         .nav-links {
             display: flex;
-            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+            width: 100%;
         }
 
         .nav-item {
             color: var(--text-light);
             text-decoration: none;
-            padding: 6px 12px;
-            border-radius: 20px;
+            padding: 5px 10px;
+            border-radius: 12px;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             transition: 0.3s;
         }
 
@@ -96,82 +103,82 @@
         /* Hero Section */
         .hero-section {
             text-align: center;
-            padding: 60px 20px 40px;
+            padding: 20px 15px 30px;
         }
 
         .badge {
             display: inline-block;
-            padding: 4px 16px;
+            padding: 4px 14px;
             background: rgba(212, 175, 55, 0.15);
             border: 1px solid var(--accent-gold);
             border-radius: 20px;
             color: var(--accent-gold);
             font-weight: 700;
-            font-size: 0.85rem;
-            margin-bottom: 15px;
+            font-size: 0.8rem;
+            margin-bottom: 12px;
         }
 
         .hero-content h1 {
-            font-size: 2.8rem;
+            font-size: 2.2rem;
             font-weight: 900;
             color: #FFF;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .hero-content p {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
         }
 
         /* Sections General */
         .section {
-            padding: 40px 0;
+            padding: 30px 0;
         }
 
         .section-title {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--accent-gold);
             text-align: center;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 900;
         }
 
         .title-underline {
-            width: 60px;
+            width: 50px;
             height: 3px;
             background: var(--accent-gold);
-            margin: 0 auto 25px;
+            margin: 0 auto 20px;
             border-radius: 2px;
         }
 
         /* About Grid */
         .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
+            grid-template-columns: 1fr;
+            gap: 15px;
         }
 
         .about-card {
             background: var(--card-bg);
             border: 1px solid var(--border-gold);
             border-radius: 12px;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
         }
 
         .about-icon {
-            font-size: 2rem;
-            margin-bottom: 8px;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
         }
 
         .about-card h3 {
             color: var(--accent-gold);
-            margin-bottom: 8px;
-            font-size: 1.1rem;
+            margin-bottom: 5px;
+            font-size: 1rem;
         }
 
         .about-card p {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             color: var(--text-light);
         }
 
@@ -179,43 +186,39 @@
         .poem-card {
             background: var(--card-bg);
             border: 1px solid var(--border-gold);
-            border-radius: 15px;
-            padding: 30px 20px;
+            border-radius: 12px;
+            padding: 20px 12px;
             text-align: center;
-            max-width: 750px;
-            margin: 0 auto;
         }
 
         .poem-line {
-            font-size: 1.15rem;
+            font-size: 0.95rem;
             font-weight: 700;
             color: #FFF;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 4px;
         }
 
         .poem-separator {
             color: var(--accent-gold);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
         /* Videos Section */
         .main-video-wrapper {
             background: var(--card-bg);
             border: 1px solid var(--border-gold);
-            border-radius: 15px;
-            padding: 15px;
-            max-width: 800px;
-            margin: 0 auto;
+            border-radius: 12px;
+            padding: 10px;
+            overflow: hidden;
         }
 
         video {
             width: 100%;
-            border-radius: 10px;
+            height: auto;
+            border-radius: 8px;
             background: #000;
             display: block;
         }
@@ -224,65 +227,84 @@
         .game-card {
             background: var(--card-bg);
             border: 1px solid var(--border-gold);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            align-items: center;
-        }
-
-        @media (max-width: 768px) {
-            .game-card {
-                grid-template-columns: 1fr;
-            }
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
         .game-number {
             display: inline-block;
-            width: 30px;
-            height: 30px;
-            line-height: 30px;
+            width: 26px;
+            height: 26px;
+            line-height: 26px;
             background: var(--primary-green);
             color: var(--accent-gold);
             border-radius: 50%;
             text-align: center;
             font-weight: 900;
-            font-size: 0.9rem;
-            margin-bottom: 8px;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
         }
 
         .game-info h3 {
             color: var(--accent-gold);
-            margin-bottom: 6px;
-            font-size: 1.2rem;
+            margin-bottom: 4px;
+            font-size: 1.1rem;
         }
 
         .game-info p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
         }
 
         /* Footer */
         .footer {
             text-align: center;
-            padding: 20px;
+            padding: 20px 10px;
             border-top: 1px solid var(--border-gold);
             color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 30px;
-            background: rgba(0, 0, 0, 0.2);
+            font-size: 0.85rem;
+            margin-top: 25px;
+            background: rgba(0, 0, 0, 0.3);
         }
 
         .footer strong {
             color: var(--accent-gold);
         }
+
+        /* التكيف تلقائياً للـ Desktop */
+        @media (min-width: 768px) {
+            body {
+                padding-top: 80px;
+            }
+            .nav-container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .nav-links {
+                width: auto;
+            }
+            .about-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .poem-line {
+                flex-direction: row;
+                justify-content: center;
+            }
+            .game-card {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- الشريط العلوي -->
+    <!-- الشريط العلوي المتجاوب -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">عزنا بطبعنا 🇸🇦</div>
@@ -360,7 +382,7 @@
                 <div class="poem-line">
                     <span>فَيَا رَايَةَ التَّوْحِيدِ دُومِي خَفَّاقَةً</span>
                     <span class="poem-separator">❖</span>
-                    <span>عَلَى قِمَّةِ الدُّنْيَا مَدَى الدَّهْرِ أَعْلَى</span>
+                    <span>عَلَى قِمَّةِ الدُّنْيَا مَدَى الدَّهْرِ أَعْلَى</span>
                 </div>
             </div>
         </div>
@@ -372,8 +394,8 @@
             <h2 class="section-title">المقطع المرئي الرئيسي</h2>
             <div class="title-underline"></div>
             <div class="main-video-wrapper">
-                <video controls>
-                    <source src="1000086831.mp4" type="video/mp4">
+                <video controls playsinline preload="metadata">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
@@ -392,8 +414,8 @@
                     <p>لعبة حركية تعتمد على السرعة والبديهة بين الأطفال.</p>
                 </div>
                 <div class="game-media">
-                    <video controls>
-                        <source src="1000086831.mp4" type="video/mp4">
+                    <video controls playsinline preload="metadata">
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -405,8 +427,8 @@
                     <p>لعبة تراثية قديمة تعتمد على التنافس والتركيز.</p>
                 </div>
                 <div class="game-media">
-                    <video controls>
-                        <source src="1000086831.mp4" type="video/mp4">
+                    <video controls playsinline preload="metadata">
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -418,8 +440,8 @@
                     <p>لعبة ذهنية شعبية مشهورة تجمع العائلة والأصدقاء.</p>
                 </div>
                 <div class="game-media">
-                    <video controls>
-                        <source src="1000086831.mp4" type="video/mp4">
+                    <video controls playsinline preload="metadata">
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyflights.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -431,8 +453,8 @@
                     <p>لعبة حركية تعتمد على التوازن باستخدام أدوات البيئة.</p>
                 </div>
                 <div class="game-media">
-                    <video controls>
-                        <source src="1000086831.mp4" type="video/mp4">
+                    <video controls playsinline preload="metadata">
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -444,8 +466,8 @@
                     <p>لعبة تراثية لتقييم المهارة والدقة في التصويب.</p>
                 </div>
                 <div class="game-media">
-                    <video controls>
-                        <source src="1000086831.mp4" type="video/mp4">
+                    <video controls playsinline preload="metadata">
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
