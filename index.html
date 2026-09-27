@@ -4,12 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>منصة عزنا بطبعنا 🇸🇦</title>
-    <!-- خط تجوال -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <!-- ربط ملف التنسيقات الخارجي CSS -->
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary-green: #006C35;
+            --accent-gold: #D4AF37;
+            --bg-dark: #0A1912;
+            --text-light: #F5F5F5;
+            --text-muted: #A0B0A8;
+            --glass-border: rgba(212, 175, 55, 0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-family: 'Tajawal', sans-serif; background-color: var(--bg-dark); color: var(--text-light); }
+        body { line-height: 1.8; background: radial-gradient(circle at top, #00381B 0%, #06140D 100%); padding-top: 80px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Navbar */
+        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(6, 20, 13, 0.95); border-bottom: 1px solid var(--glass-border); padding: 15px 0; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 900; color: var(--accent-gold); }
+        .nav-links { display: flex; gap: 12px; }
+        .nav-item { color: #FFF; text-decoration: none; padding: 8px 14px; border-radius: 20px; font-weight: 700; transition: 0.3s; font-size: 0.95rem; }
+        .nav-item:hover { background: var(--primary-green); color: var(--accent-gold); }
+
+        /* Hero Header */
+        .hero-section { text-align: center; padding: 60px 20px; background: rgba(0,0,0,0.2); border-bottom: 1px solid var(--glass-border); }
+        .badge { display: inline-block; padding: 6px 20px; background: rgba(212, 175, 55, 0.15); border: 1px solid var(--accent-gold); border-radius: 30px; color: var(--accent-gold); font-weight: 700; margin-bottom: 15px; }
+        .hero-content h1 { font-size: 3rem; font-weight: 900; color: #FFF; margin-bottom: 10px; }
+        .hero-content p { font-size: 1.1rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 20px; }
+
+        /* Sections & Cards */
+        .section { padding: 50px 0; }
+        .section-title { font-size: 2rem; color: var(--accent-gold); text-align: center; margin-bottom: 10px; }
+        .title-underline { width: 70px; height: 3px; background: var(--accent-gold); margin: 0 auto 30px; }
+        .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .about-card-item { background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); border-radius: 15px; padding: 25px; text-align: center; }
+        .about-icon { font-size: 2.2rem; margin-bottom: 10px; }
+        .about-card-item h3 { color: var(--accent-gold); margin-bottom: 10px; }
+
+        /* Poem Section */
+        .poem-card { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); border-radius: 20px; padding: 35px 20px; text-align: center; max-width: 800px; margin: 0 auto; }
+        .poem-line { font-size: 1.25rem; font-weight: 700; color: #FFF; margin-bottom: 16px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .poem-separator { color: var(--accent-gold); }
+
+        /* Videos Section */
+        .main-video-wrapper { background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 20px; padding: 20px; margin-bottom: 30px; text-align: center; }
+        .game-detail-card { background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 20px; padding: 20px; margin-bottom: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; }
+        @media (max-width: 768px) { .game-detail-card { grid-template-columns: 1fr; } }
+        
+        video { width: 100%; max-height: 350px; border-radius: 12px; border: 1px solid var(--glass-border); background: #000; }
+        .game-number { display: inline-block; width: 36px; height: 36px; line-height: 36px; background: var(--primary-green); color: var(--accent-gold); border-radius: 50%; text-align: center; font-weight: 900; margin-bottom: 10px; }
+
+        .footer { text-align: center; padding: 25px; border-top: 1px solid var(--glass-border); color: var(--text-muted); margin-top: 40px; }
+    </style>
 </head>
 <body>
 
@@ -22,7 +72,6 @@
                 <a href="#poem" class="nav-item">أبيات وطنية</a>
                 <a href="#video-section" class="nav-item">المقطع المرئي</a>
                 <a href="#games" class="nav-item">الألعاب الشعبية</a>
-                <a href="#flag-section" class="nav-item">الراية الشريفة</a>
             </div>
         </div>
     </nav>
@@ -34,10 +83,6 @@
             <div class="hero-content">
                 <h1>عزنا بطبعنا</h1>
                 <p>مشروع وطني يوثق الموروث الشعبي والرموز الوطنية الأصيلة للمملكة العربية السعودية</p>
-                <div class="hero-btns">
-                    <a href="#about" class="btn btn-primary">استكشف المشروع</a>
-                    <a href="#poem" class="btn btn-secondary">القصيدة الوطنية</a>
-                </div>
             </div>
         </div>
     </header>
@@ -108,9 +153,8 @@
             <h2 class="section-title">المقطع المرئي الرئيسي</h2>
             <div class="title-underline"></div>
             <div class="main-video-wrapper">
-                <video class="custom-video" controls preload="auto">
+                <video controls preload="metadata">
                     <source src="1000086831.mp4" type="video/mp4">
-                    متصفحك لا يدعم تشغيل الفيديو.
                 </video>
             </div>
         </div>
@@ -129,7 +173,7 @@
                     <p>لعبة حركية شعبية تعتمد على السرعة والبديهة، يجتمع الأطفال في حلقة ويرددون الأهازيج الشعبية المشهورة.</p>
                 </div>
                 <div class="game-media">
-                    <video class="custom-video" controls preload="auto">
+                    <video controls preload="metadata">
                         <source src="1000086831.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -142,7 +186,7 @@
                     <p>من الألعاب التراثية القديمة التي تعتمد على التنافس والدقة وتنمي مهارات التركيز لدى الشباب.</p>
                 </div>
                 <div class="game-media">
-                    <video class="custom-video" controls preload="auto">
+                    <video controls preload="metadata">
                         <source src="1000086831.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -155,7 +199,7 @@
                     <p>لعبة ذهنية وتنافسية شهيرة تجمع العائلة والأصدقاء في مجالس التراث الشعبية.</p>
                 </div>
                 <div class="game-media">
-                    <video class="custom-video" controls preload="auto">
+                    <video controls preload="metadata">
                         <source src="1000086831.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -168,7 +212,7 @@
                     <p>لعبة تراثية حركية تعتمد على التوازن والمهارة باستخدام الأدوات البسيطة من البيئة المحلية.</p>
                 </div>
                 <div class="game-media">
-                    <video class="custom-video" controls preload="auto">
+                    <video controls preload="metadata">
                         <source src="1000086831.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -181,26 +225,12 @@
                     <p>لعبة تراثية قديمة تقيس مهارة التصويب والدقة لدى الناشئة في الماضي.</p>
                 </div>
                 <div class="game-media">
-                    <video class="custom-video" controls preload="auto">
+                    <video controls preload="metadata">
                         <source src="1000086831.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
 
-        </div>
-    </section>
-
-    <!-- قسم الراية الشريفة -->
-    <section id="flag-section" class="section">
-        <div class="container">
-            <h2 class="section-title">رمز الراية الشريفة - العلم السعودي</h2>
-            <div class="title-underline"></div>
-            <div class="flag-display-card">
-                <div class="flag-banner">
-                    لا إله إلا الله محمد رسول الله 🇸🇦
-                </div>
-                <p>راية التوحيد والرمز الأسمى للوطن، تمثل العزة والكرامة والأصالة عبر التاريخ.</p>
-            </div>
         </div>
     </section>
 
@@ -212,7 +242,5 @@
         </div>
     </footer>
 
-    <!-- ربط ملف الجافاسكريبت الخارجي JS -->
-    <script src="script.js"></script>
 </body>
 </html>
